@@ -9,7 +9,7 @@ def navbar() -> rx.Component:
     return rx.hstack(
         rx.box(
             rx.chakra.span("Devs", color=TextColor.BODY.value),
-            rx.chakra.span("Dav", color=TextColor.HEADER.value),
+            rx.chakra.span("Dav", color="white"),
             style=styles.navbar_title_style
         ),
         position="sticky",

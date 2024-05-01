@@ -5,7 +5,7 @@ from .colors import TextColor as TextColor
 from .fonts import Font, FontWeight
 
 # Constants
-MAX_WIDTH = "600px"
+MAX_WIDTH = "560px"
 
 
 # Sizes
@@ -40,7 +40,6 @@ BASE_STYLE = {
     rx.button: {
         "width": "100%",
         "height": "100%",
-        "display": "block",
         "padding": Size.SMALL.value,
         "border_radius": Size.DEFAULT.value,
         "color": TextColor.BODY,
@@ -74,9 +73,10 @@ title_style = dict(
 button_title_style = dict(
     font_family=Font.TITLE.value,
     font_weight=FontWeight.MEDIUM.value,
+    font_size=Size.LARGE.value
 )
 
 button_body_style = dict(
     font_weight=FontWeight.LIGHT.value,
-    font_size=Size.MEDIUM.value
+    font_size=Size.DEFAULT.value
 )

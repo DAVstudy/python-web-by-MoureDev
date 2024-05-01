@@ -3,20 +3,21 @@ import link_bio.constants as constants
 from link_bio.components.link_icon import link_icon
 from link_bio.components.info_text import info_text
 from link_bio.styles.styles import Size as Size
-from link_bio.styles.colors import TextColor as TextColor
+from link_bio.styles.colors import TextColor, Color
 
 
 def header() -> rx.Component:
     return rx.vstack(
         rx.hstack(
             rx.avatar(
-                fallback="DAV",
+                src="avatar.png",
                 size=Size.DEFAULT_SPACING.value,
-                color_scheme="violet",
                 bg=TextColor.BODY.value,
-                variant="solid",
+                color=TextColor.BODY.value,
                 radius="full",
-                margin_top=Size.SMALL.value
+                margin_top=Size.SMALL.value,
+                padding="2px",
+                border=f"4px solid {Color.CONTENT.value}"
             ),
             rx.vstack(
                 rx.heading(
@@ -29,14 +30,27 @@ def header() -> rx.Component:
                     color=TextColor.BODY.value
                     ),
                 rx.hstack(
-                    link_icon(constants.INSTAGRAM_URL),
-                    link_icon(constants.TIKTOK_URL),
-                    link_icon(constants.TWITTER_X_URL),
+                    link_icon(
+                        "/icons/instagram.svg",
+                        constants.INSTAGRAM_URL,
+                        "Instagram"
+                    ),
+                    link_icon(
+                        "/icons/tiktok.svg",
+                        constants.TIKTOK_URL,
+                        "TikTok"
+                    ),
+                    link_icon(
+                        "/icons/x-twitter.svg",
+                        constants.TWITTER_X_URL,
+                        "X"
+                    ),
                     padding_top=Size.SMALL.value,
                     spacing=Size.DEFAULT_SPACING.value
                 ),
                 width="100%",
-                spacing=Size.SMALL_SPACING.value
+                spacing=Size.SMALL_SPACING.value,
+                align_items="start"
             ),
             align="end",
             spacing=Size.DEFAULT_SPACING.value

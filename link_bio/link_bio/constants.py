@@ -1,3 +1,7 @@
+# General
+
+G_TAG = "G-3YGHT3XJFS"
+
 # Redes Sociales
 INSTAGRAM_URL = "https://www.instagram.com/devsdav?igsh=MWtvd3J3NDd5eThmMA%3D%3D"
 TIKTOK_URL = "https://www.tiktok.com/@devsdav?_t=8jFPLVj5Con&_r=1"
@@ -14,3 +18,6 @@ GITHUB_URL = "https://github.com/DAVstudy"
 # Contacto
 MY_PUBLIC_INBOX = " "
 EMAIL = "devsdav@devsdav.com"
+
+# Recursos
+REPO_URL = "https://github.com/DAVstudy/python-web-by-MoureDev"

@@ -2,7 +2,7 @@
 INSTAGRAM_URL = "https://www.instagram.com/devsdav?igsh=MWtvd3J3NDd5eThmMA%3D%3D"
 TIKTOK_URL = "https://www.tiktok.com/@devsdav?_t=8jFPLVj5Con&_r=1"
 TWITTER_X_URL = "https://twitter.com/DevsDav"
-LINKEDIN_URL = "https://www.linkedin.com/feed/"
+LINKEDIN_URL = "https://www.linkedin.com/in/diegoarenasv/"
 
 # CONTENIDO DE VIDEO
 TWITCH_URL = "https://www.twitch.tv/devsdav"

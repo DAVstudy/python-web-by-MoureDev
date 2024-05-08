@@ -10,7 +10,7 @@ def header() -> rx.Component:
     return rx.vstack(
         rx.hstack(
             rx.avatar(
-                src="avatar.png",
+                src="/avatar.png",
                 size=Size.DEFAULT_SPACING.value,
                 bg=TextColor.BODY.value,
                 color=TextColor.BODY.value,
@@ -69,7 +69,8 @@ def header() -> rx.Component:
                 espero aportar para bien, un abrazo.
                 """,
                 font_size=Size.DEFAULT.value,
-                color=TextColor.HEADER.value
+                color=TextColor.HEADER.value,
+                text_align="justify"
                 ),
         spacing=Size.BIG_SPACING.value
     )

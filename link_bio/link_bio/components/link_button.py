@@ -6,7 +6,8 @@ from link_bio.styles.styles import Size as Size
 def link_button(title: str,
                 body: str,
                 image: str,
-                url: str) -> rx.Component:
+                url: str,
+                is_external=True) -> rx.Component:
     return rx.link(
         rx.button(
             rx.hstack(
@@ -36,6 +37,6 @@ def link_button(title: str,
             ),
         ),
         href=url,
-        is_external=True,
+        is_external=is_external,
         width="100%"
     )

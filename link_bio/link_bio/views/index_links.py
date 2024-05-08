@@ -1,10 +1,11 @@
 import reflex as rx
 from link_bio.components.link_button import link_button
 from link_bio.components.title import title
+from link_bio.routes import Route
 import link_bio.constants as constants
 
 
-def links() -> rx.Component:
+def index_links() -> rx.Component:
     return rx.vstack(
         title("Redes Sociales"),
         link_button(
@@ -44,12 +45,19 @@ def links() -> rx.Component:
             "/icons/youtube.svg",
             constants.YOUTUBE_URL
             ),
-        title("Proyectos"),
+        title("Proyectos y Cursos Realizados"),
         link_button(
             "Github",
             "Revisa mis proyectos :)",
             "/icons/github.svg",
             constants.GITHUB_URL
+            ),
+        link_button(
+            "Cursos Realizados",
+            "Revisa los contenidos educativos que me han ayudado",
+            "/icons/book.svg",
+            Route.COURSES.value,
+            is_external=False
             ),
         title("Contacto"),
         link_button(

@@ -5,7 +5,7 @@ from .colors import TextColor as TextColor
 from .fonts import Font, FontWeight
 
 # Constants
-MAX_WIDTH = "560px"
+MAX_WIDTH = "600px"
 
 
 # Sizes

@@ -31,7 +31,7 @@ def footer() -> rx.Component:
         rx.link(
             rx.hstack(
                 rx.image(
-                    src="icons/github.svg",
+                    src="/icons/github.svg",
                     height=Size.LARGE.value,
                     weidth=Size.LARGE.value,
                     alt="Logotipo de GitHub"

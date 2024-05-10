@@ -6,7 +6,7 @@ from link_bio.styles.styles import Size as Size
 from link_bio.styles.colors import TextColor, Color
 
 
-def header() -> rx.Component:
+def header(details=True) -> rx.Component:
     return rx.vstack(
         rx.hstack(
             rx.avatar(
@@ -55,22 +55,29 @@ def header() -> rx.Component:
             align="end",
             spacing=Size.DEFAULT_SPACING.value
         ),
-        rx.flex(
-            info_text("+3", "años de experiencia como ingeniero electrónico"),
-            rx.spacer(),
-            info_text("+3", "cursos de programación con Python realizados"),
-            rx.spacer(),
-            info_text("+100", "seguidores"),
-            width="100%"
-        ),
-        rx.text("""Soy un Ingeniero Electrónico que ha encontrado su pasión en
-                programar, me encuentro aprendiendo sobre el mundo del
-                desarrollo y quisiera compartir mi experiencia con ustedes,
-                espero aportar para bien, un abrazo.
-                """,
-                font_size=Size.DEFAULT.value,
-                color=TextColor.HEADER.value,
-                text_align="justify"
+        rx.cond(
+            details,
+            rx.vstack(
+                rx.flex(
+                    info_text("+3", "años de experiencia como ingeniero electrónico"),
+                    rx.spacer(),
+                    info_text("+3", "cursos de programación con Python realizados"),
+                    rx.spacer(),
+                    info_text("+100", "seguidores"),
+                    width="100%"
                 ),
-        spacing=Size.BIG_SPACING.value
+
+                rx.text("""Soy un Ingeniero Electrónico que ha encontrado su pasión en
+                        programar, me encuentro aprendiendo sobre el mundo del
+                        desarrollo y quisiera compartir mi experiencia con ustedes,
+                        espero aportar para bien, un abrazo.
+                        """,
+                        font_size=Size.DEFAULT.value,
+                        color=TextColor.HEADER.value,
+                        text_align="justify"),
+                width="100%",
+                spacing=Size.DEFAULT_SPACING.value
+            )
+        ),
+        spacing=Size.DEFAULT_SPACING.value
     )

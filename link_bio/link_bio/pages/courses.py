@@ -22,12 +22,13 @@ def courses() -> rx.Component:
         navbar(),
         rx.center(
             rx.vstack(
-               header(),
-               courses_links(),
-               max_width=styles.MAX_WIDTH,
-               width="100%",
-               margin_y=Size.BIG.value,
-               padding=Size.BIG.value
+                header(False),
+                courses_links(),
+                max_width=styles.MAX_WIDTH,
+                width="100%",
+                margin_y=Size.BIG.value,
+                padding=Size.BIG.value,
+                spacing="9"
             )
         ),
         footer()

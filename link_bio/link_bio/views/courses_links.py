@@ -24,7 +24,14 @@ def courses_links() -> rx.Component:
             "MoureDev - Curso Hello-Python ",
             "Curso de +37h: Fundamentos, frontend, backend, testing...",
             "/icons/python.svg",
-            constants.MOURE_PYTHON_COURSE_URL
+            constants.MOURE_HELLOPYTHON_COURSE_URL
         ),
-        width="100%"
+        link_button(
+            "MoureDev - Curso python-web",
+            "Curso de +13h: en vídeo para aprender desarrollo web Python y Reflex desde cero.",
+            "/icons/python.svg",
+            constants.MOURE_PYTHONWEB_COURSE_URL
+        ),
+        width="100%",
+        margin_bottom="6px"
     )

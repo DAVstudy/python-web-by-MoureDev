@@ -25,4 +25,5 @@ REPO_URL = "https://github.com/DAVstudy/python-web-by-MoureDev"
 # Cursos
 COURSERA_PYTHON = "https://www.coursera.org/learn/aprendiendo-programar-python"
 COURSERA_PYTHON_II = "https://www.coursera.org/learn/programacion-en-python-ii-aprendiendo-a-estructurar-datos"
-MOURE_PYTHON_COURSE_URL = "https://mouredev.link/python"
+MOURE_HELLOPYTHON_COURSE_URL = "https://github.com/mouredev/Hello-Python"
+MOURE_PYTHONWEB_COURSE_URL = "https://github.com/mouredev/python-web"

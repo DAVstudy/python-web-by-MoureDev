@@ -6,6 +6,10 @@ from link_bio.pages.index import index
 from link_bio.pages.courses import courses
 
 
+class State(rx.State):
+    """Define your app state here."""
+
+
 app = rx.App(
     stylesheets=styles.STYLESHEETS,
     style=styles.BASE_STYLE,

@@ -6,6 +6,14 @@ from link_bio.components.footer import footer
 from link_bio.views.header import header
 from link_bio.views.index_links import index_links
 from link_bio.styles.styles import Size
+from link_bio.api.api import hello
+
+
+class IndexState(rx.State):
+
+    @rx.var
+    def say_hello(self):
+        return hello()
 
 
 @rx.page(
@@ -20,6 +28,7 @@ def index() -> rx.Component:
         navbar(),
         rx.center(
             rx.vstack(
+               rx.text(IndexState.say_hello),
                header(),
                index_links(),
                max_width=styles.MAX_WIDTH,

@@ -4,7 +4,7 @@ import link_bio.constants as constants
 import link_bio.styles.styles as styles
 from link_bio.pages.index import index
 from link_bio.pages.courses import courses
-from link_bio.api.api import hello
+from link_bio.api.api import repo
 
 
 app = rx.App(
@@ -24,4 +24,4 @@ gtag('config', '{constants.G_TAG}');
     ]
 )
 
-app.api.add_api_route("/hello", hello)
+app.api.add_api_route("/repo", repo)

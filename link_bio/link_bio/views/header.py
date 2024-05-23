@@ -6,9 +6,13 @@ from link_bio.styles.styles import Size as Size
 from link_bio.styles.colors import TextColor, Color
 
 
-def header(details=True) -> rx.Component:
+def header(details=True, live=False) -> rx.Component:
     return rx.vstack(
         rx.hstack(
+            rx.cond(
+                live,
+                rx.text("is_live", color=TextColor.BODY.value)
+            ),
             rx.avatar(
                 src="/avatar.png",
                 size=Size.DEFAULT_SPACING.value,

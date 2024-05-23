@@ -6,6 +6,7 @@ class Color(Enum):
     SECUNDARY = "#2B124C"
     BACKGROUDN = "#1D1A39"
     CONTENT = "#F39F5A"
+    PURPLE = "#9146ff"
 
 
 class TextColor(Enum):

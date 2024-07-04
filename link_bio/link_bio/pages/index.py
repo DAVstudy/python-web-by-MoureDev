@@ -6,15 +6,7 @@ from link_bio.components.footer import footer
 from link_bio.views.header import header
 from link_bio.views.index_links import index_links
 from link_bio.styles.styles import Size
-from link_bio.api.api import live
-
-
-class IndexState(rx.State):
-
-    is_live: bool
-
-    async def check_live(self):
-        self.is_live = await live("devsdav")
+from link_bio.state.PageState import PageState
 
 
 @rx.page(
@@ -22,7 +14,7 @@ class IndexState(rx.State):
     description=utils.index_description,
     image=utils.preview,
     meta=utils.index_meta,
-    on_load=IndexState.check_live
+    on_load=PageState.check_live
 )
 def index() -> rx.Component:
     return rx.box(
@@ -30,7 +22,7 @@ def index() -> rx.Component:
         navbar(),
         rx.center(
             rx.vstack(
-               header(live=IndexState.is_live),
+               header(live=PageState.is_live),
                index_links(),
                max_width=styles.MAX_WIDTH,
                width="100%",

@@ -1,4 +1,7 @@
 import link_bio.constants as constants
+from .TwitchAPI import TwitchAPI
+
+TWITCH_API = TwitchAPI()
 
 
 async def repo() -> str:
@@ -6,6 +9,4 @@ async def repo() -> str:
 
 
 async def live(user: str) -> bool:
-    if user == "devsdav":
-        return True
-    return False
+    return TWITCH_API.live(user)

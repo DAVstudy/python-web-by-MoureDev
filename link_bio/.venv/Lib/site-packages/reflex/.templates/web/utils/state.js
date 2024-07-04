@@ -12,6 +12,8 @@ import {
   onLoadInternalEvent,
   state_name,
 } from "utils/context.js";
+import debounce from "/utils/helpers/debounce";
+import throttle from "/utils/helpers/throttle";
 
 // Endpoint URLs.
 const EVENTURL = env.EVENT;
@@ -124,8 +126,13 @@ export const applyDelta = (state, delta) => {
 export const applyEvent = async (event, socket) => {
   // Handle special events
   if (event.name == "_redirect") {
-    if (event.payload.external) window.open(event.payload.path, "_blank");
-    else Router.push(event.payload.path);
+    if (event.payload.external) {
+      window.open(event.payload.path, "_blank");
+    } else if (event.payload.replace) {
+      Router.replace(event.payload.path);
+    } else {
+      Router.push(event.payload.path);
+    }
     return false;
   }
 
@@ -571,7 +578,23 @@ export const useEventLoop = (
     if (event_actions?.stopPropagation && _e?.stopPropagation) {
       _e.stopPropagation();
     }
-    queueEvents(events, socket);
+    const combined_name = events.map((e) => e.name).join("+++");
+    if (event_actions?.throttle) {
+      // If throttle returns false, the events are not added to the queue.
+      if (!throttle(combined_name, event_actions.throttle)) {
+        return;
+      }
+    }
+    if (event_actions?.debounce) {
+      // If debounce is used, queue the events after some delay
+      debounce(
+        combined_name,
+        () => queueEvents(events, socket),
+        event_actions.debounce,
+      );
+    } else {
+      queueEvents(events, socket);
+    }
   };
 
   const sentHydrate = useRef(false); // Avoid double-hydrate due to React strict-mode
@@ -691,8 +714,8 @@ export const getRefValue = (ref) => {
   if (ref.current.type == "checkbox") {
     return ref.current.checked; // chakra
   } else if (
-    ref.current.className?.includes("rt-CheckboxButton") ||
-    ref.current.className?.includes("rt-SwitchButton")
+    ref.current.className?.includes("rt-CheckboxRoot") ||
+    ref.current.className?.includes("rt-SwitchRoot")
   ) {
     return ref.current.ariaChecked == "true"; // radix
   } else if (ref.current.className?.includes("rt-SliderRoot")) {

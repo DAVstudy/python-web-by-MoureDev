@@ -22,8 +22,8 @@ def index() -> rx.Component:
         navbar(),
         rx.center(
             rx.vstack(
-               header(live=PageState.is_live),
-               index_links(),
+               header(),
+               index_links(live=PageState.is_live),
                max_width=styles.MAX_WIDTH,
                width="100%",
                margin_y=Size.BIG.value,

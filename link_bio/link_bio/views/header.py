@@ -9,10 +9,6 @@ from link_bio.styles.colors import TextColor, Color
 def header(details=True, live=False) -> rx.Component:
     return rx.vstack(
         rx.hstack(
-            rx.cond(
-                live,
-                rx.text("is_live", color=TextColor.BODY.value)
-            ),
             rx.avatar(
                 src="/avatar.png",
                 size=Size.DEFAULT_SPACING.value,
@@ -31,7 +27,7 @@ def header(details=True, live=False) -> rx.Component:
                 rx.text(
                     "@devsdav",
                     margin_top=Size.ZERO.value,
-                    color=TextColor.BODY.value
+                    color=TextColor.SUBTITLE.value
                     ),
                 rx.hstack(
                     link_icon(

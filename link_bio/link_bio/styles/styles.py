@@ -5,7 +5,7 @@ from .colors import TextColor as TextColor
 from .fonts import Font, FontWeight
 
 # Constants
-MAX_WIDTH = "600px"
+MAX_WIDTH = "650px"
 
 
 # Sizes
@@ -34,7 +34,7 @@ BASE_STYLE = {
     "font_weight": FontWeight.LIGHT.value,
     "height": "100%",
     "width": "100%",
-    "background_color": Color.BACKGROUDN.value,
+    "background_color": Color.BACKGROUND.value,
     rx.heading: {
         "color": TextColor.HEADER.value,
         "font_family": Font.TITLE.value,
@@ -51,8 +51,7 @@ BASE_STYLE = {
         "text_align": "start",
         "--cursor-button": "pointer",
         "_hover": {
-            "background_color": Color.SECUNDARY.value,
-            "color": TextColor.HEADER
+            "background_color": Color.SECUNDARY.value
         }
     },
     rx.link: {

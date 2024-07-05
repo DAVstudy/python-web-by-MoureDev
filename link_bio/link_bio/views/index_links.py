@@ -5,8 +5,36 @@ from link_bio.routes import Route
 import link_bio.constants as constants
 
 
-def index_links() -> rx.Component:
+def index_links(live=False) -> rx.Component:
     return rx.vstack(
+        title("Contenido de Video"),
+        link_button(
+            "Twitch",
+            "Directos realizando proyectos de desarrollo.",
+            "/icons/twitch.svg",
+            constants.TWITCH_URL,
+            live
+            ),
+        link_button(
+            "Youtube",
+            "Pronto subire video",
+            "/icons/youtube.svg",
+            constants.YOUTUBE_URL
+            ),
+        title("Proyectos y Cursos Realizados"),
+        link_button(
+            "Github",
+            "Revisa mis proyectos :)",
+            "/icons/github.svg",
+            constants.GITHUB_URL
+            ),
+        link_button(
+            "Cursos Realizados",
+            "Revisa los contenidos educativos que me han ayudado",
+            "/icons/book.svg",
+            Route.COURSES.value,
+            is_external=False
+            ),
         title("Redes Sociales"),
         link_button(
             "Instagram",
@@ -32,33 +60,6 @@ def index_links() -> rx.Component:
             "/icons/tiktok.svg",
             constants.TIKTOK_URL
         ),
-        title("Contenido de Video"),
-        link_button(
-            "Twitch",
-            "Directos realizando proyectos de desarrollo.",
-            "/icons/twitch.svg",
-            constants.TWITCH_URL
-            ),
-        link_button(
-            "Youtube",
-            "Pronto subire video",
-            "/icons/youtube.svg",
-            constants.YOUTUBE_URL
-            ),
-        title("Proyectos y Cursos Realizados"),
-        link_button(
-            "Github",
-            "Revisa mis proyectos :)",
-            "/icons/github.svg",
-            constants.GITHUB_URL
-            ),
-        link_button(
-            "Cursos Realizados",
-            "Revisa los contenidos educativos que me han ayudado",
-            "/icons/book.svg",
-            Route.COURSES.value,
-            is_external=False
-            ),
         title("Contacto"),
         link_button(
             "Email",

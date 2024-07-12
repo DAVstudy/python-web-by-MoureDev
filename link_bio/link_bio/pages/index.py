@@ -14,7 +14,7 @@ from link_bio.state.PageState import PageState
     description=utils.index_description,
     image=utils.preview,
     meta=utils.index_meta,
-    on_load=PageState.check_live
+    on_load=[PageState.check_live, PageState.featured_links]
 )
 def index() -> rx.Component:
     return rx.box(
@@ -26,7 +26,7 @@ def index() -> rx.Component:
                    live=PageState.is_live,
                    live_title=PageState.live_title
                 ),
-               index_links(live=PageState.is_live),
+               index_links(featured=PageState.featured_info),
                max_width=styles.MAX_WIDTH,
                width="100%",
                margin_y=Size.BIG.value,

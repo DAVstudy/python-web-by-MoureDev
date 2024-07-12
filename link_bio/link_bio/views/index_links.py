@@ -6,7 +6,7 @@ import link_bio.constants as constants
 from link_bio.styles.styles import Color
 
 
-def index_links(live=False) -> rx.Component:
+def index_links(featured=[]) -> rx.Component:
     return rx.vstack(
         title("Contenido de Video"),
         link_button(
@@ -14,13 +14,13 @@ def index_links(live=False) -> rx.Component:
             "Directos realizando proyectos de desarrollo.",
             "/icons/twitch.svg",
             constants.TWITCH_URL
-            ),
+        ),
         link_button(
             "Youtube",
             "Pronto subire video",
             "/icons/youtube.svg",
             constants.YOUTUBE_URL
-            ),
+        ),
         title("Proyectos y Cursos Realizados"),
         link_button(
             "Github",

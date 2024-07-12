@@ -12,7 +12,7 @@ def navbar() -> rx.Component:
     return rx.hstack(
         rx.link(
             rx.box(
-                rx.chakra.span("Devs", color=TextColor.BODY.value),
+                rx.chakra.span("Devs", color="#BD8FDE"),
                 rx.chakra.span("Dav", color="white"),
                 style=styles.navbar_title_style
             ),
@@ -23,7 +23,7 @@ def navbar() -> rx.Component:
             href=constants.TWITCH_URL
         ),
         position="sticky",
-        bg=Color.CONTENT.value,
+        bg=Color.NAVBAR.value,
         padding_x=Size.BIG.value,
         padding_y=Size.SMALL.value,
         z_index="999",

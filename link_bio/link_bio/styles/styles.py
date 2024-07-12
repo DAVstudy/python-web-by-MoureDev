@@ -6,11 +6,14 @@ from .fonts import Font, FontWeight
 
 # Constants
 MAX_WIDTH = "650px"
-
+FADEIN_ANIMATION = "animate__animated animate__fadeIn"
+BOUNCEIN_ANIMATION = "animate__animated animate__bounceIn"
 
 # Sizes
 STYLESHEETS = [
-    "https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap"
+    "https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap",
+    "https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css",
+    "/css/styles.css"
 ]
 
 
@@ -45,13 +48,14 @@ BASE_STYLE = {
         "height": "100%",
         "padding": Size.SMALL.value,
         "border_radius": Size.DEFAULT.value,
-        "color": TextColor.BODY,
-        "background_color": Color.CONTENT.value,
+        "color": TextColor.HEADER.value,
+        "background_color": Color.NAVBAR.value,
         "white_space": "normal",
         "text_align": "start",
         "--cursor-button": "pointer",
         "_hover": {
-            "background_color": Color.SECUNDARY.value
+            "color": TextColor.BODY.value,
+            "background_color": Color.CONTENT.value,
         }
     },
     rx.link: {

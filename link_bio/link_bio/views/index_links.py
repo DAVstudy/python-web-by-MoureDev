@@ -3,6 +3,7 @@ from link_bio.components.link_button import link_button
 from link_bio.components.title import title
 from link_bio.routes import Route
 import link_bio.constants as constants
+from link_bio.styles.styles import Color
 
 
 def index_links(live=False) -> rx.Component:
@@ -12,8 +13,7 @@ def index_links(live=False) -> rx.Component:
             "Twitch",
             "Directos realizando proyectos de desarrollo.",
             "/icons/twitch.svg",
-            constants.TWITCH_URL,
-            live
+            constants.TWITCH_URL
             ),
         link_button(
             "Youtube",

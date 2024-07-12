@@ -1,12 +1,14 @@
 import reflex as rx
+import datetime
 import link_bio.constants as constants
 from link_bio.components.link_icon import link_icon
 from link_bio.components.info_text import info_text
-from link_bio.styles.styles import Size as Size
+from link_bio.styles.styles import Size
 from link_bio.styles.colors import TextColor, Color
+from link_bio.components.link_button import link_button
 
 
-def header(details=True, live=False) -> rx.Component:
+def header(details=True, live=False, live_title="") -> rx.Component:
     return rx.vstack(
         rx.hstack(
             rx.avatar(
@@ -59,14 +61,24 @@ def header(details=True, live=False) -> rx.Component:
             details,
             rx.vstack(
                 rx.flex(
-                    info_text("+3", "años de experiencia como ingeniero electrónico"),
+                    info_text(f"+{experience()}", "de ingeniero electrónico"),
                     rx.spacer(),
-                    info_text("+3", "cursos de programación con Python realizados"),
+                    info_text(f"+3", "cursos de programación"),
                     rx.spacer(),
                     info_text("+100", "seguidores"),
                     width="100%"
                 ),
-
+                rx.cond(
+                    live,
+                    link_button(
+                        "En directo",
+                        live_title,
+                        "/icons/twitch.svg",
+                        constants.TWITCH_URL,
+                        highlight_color=Color.BORDER.value,
+                        animated=True
+                    )
+                ),
                 rx.text("""Soy un Ingeniero Electrónico que ha encontrado su pasión en
                         programar, me encuentro aprendiendo sobre el mundo del
                         desarrollo y quisiera compartir mi experiencia con ustedes,
@@ -81,3 +93,7 @@ def header(details=True, live=False) -> rx.Component:
         ),
         spacing=Size.DEFAULT_SPACING.value
     )
+
+
+def experience() -> int:
+    return datetime.date.today().year - 2021

@@ -1,12 +1,15 @@
 import reflex as rx
 from link_bio.api.api import live
 
-USER = "carola"
+USER = "devsdav"
 
 
 class PageState(rx.State):
 
     is_live: bool
+    live_title: str
 
     async def check_live(self):
-        self.is_live = await live(USER)
+        live_data = await live(USER)
+        self.is_live = live_data["live"]
+        self.live_title = live_data["title"]

@@ -26,7 +26,7 @@ def courses() -> rx.Component:
             rx.vstack(
                 header(
                     False,
-                    live=PageState.is_live
+                    live=PageState.live_status
                 ),
                 courses_links(),
                 max_width=styles.MAX_WIDTH,

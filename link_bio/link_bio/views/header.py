@@ -6,9 +6,10 @@ from link_bio.components.info_text import info_text
 from link_bio.styles.styles import Size
 from link_bio.styles.colors import TextColor, Color
 from link_bio.components.link_button import link_button
+from link_bio.model.Live import Live
 
 
-def header(details=True, live=False, live_title="") -> rx.Component:
+def header(details=True, live=Live(live=False, title="")) -> rx.Component:
     return rx.vstack(
         rx.hstack(
             rx.avatar(
@@ -63,16 +64,16 @@ def header(details=True, live=False, live_title="") -> rx.Component:
                 rx.flex(
                     info_text(f"+{experience()}", "de ingeniero electrónico"),
                     rx.spacer(),
-                    info_text(f"+3", "cursos de programación"),
+                    info_text("+3", "cursos de programación"),
                     rx.spacer(),
                     info_text("+100", "seguidores"),
                     width="100%"
                 ),
                 rx.cond(
-                    live,
+                    live.live,
                     link_button(
                         "En directo",
-                        live_title,
+                        live.title,
                         "/icons/twitch.svg",
                         constants.TWITCH_URL,
                         highlight_color=Color.BORDER.value,

@@ -1,9 +1,11 @@
 import reflex as rx
+import link_bio.constants as constants
 from link_bio.components.link_button import link_button
 from link_bio.components.title import title
 from link_bio.routes import Route
-import link_bio.constants as constants
-from link_bio.styles.styles import Color
+from link_bio.components.featured_link import featured_link
+from link_bio.state.PageState import PageState
+from link_bio.styles.styles import Color, Size
 
 
 def index_links(featured=[]) -> rx.Component:
@@ -13,7 +15,9 @@ def index_links(featured=[]) -> rx.Component:
             "Twitch",
             "Directos realizando proyectos de desarrollo.",
             "/icons/twitch.svg",
-            constants.TWITCH_URL
+            constants.TWITCH_URL,
+            True,
+            Color.BORDER.value
         ),
         link_button(
             "Youtube",
@@ -21,6 +25,23 @@ def index_links(featured=[]) -> rx.Component:
             "/icons/youtube.svg",
             constants.YOUTUBE_URL
         ),
+
+        rx.cond(
+            PageState.featured_info,
+            rx.vstack(
+                title("Destacado"),
+                rx.flex(
+                    rx.foreach(
+                        PageState.featured_info,
+                        featured_link
+                    ),
+                    flex_direction=["column", "row"],
+                    spacing=Size.DEFAULT_SPACING.value
+                ),
+                spacing=Size.DEFAULT_SPACING.value
+            )
+        ),
+        
         title("Proyectos y Cursos Realizados"),
         link_button(
             "Github",

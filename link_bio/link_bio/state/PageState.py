@@ -3,7 +3,7 @@ from link_bio.api.api import live, featured
 from link_bio.model.Live import Live
 from link_bio.model.Featured import Featured
 
-USER = "elxokas"
+USER = "devsdav"
 
 
 class PageState(rx.State):

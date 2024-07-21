@@ -16,6 +16,6 @@ class ConfigCatAPI:
 
     def schedule(self) -> dict:
         response = self.configcat.get_value("featured_schedule", "")
-        print(response)
+
         return json.loads(str(response))
     

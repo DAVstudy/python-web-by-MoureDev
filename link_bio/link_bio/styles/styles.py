@@ -7,11 +7,12 @@ from .fonts import Font, FontWeight
 # Constants
 MAX_WIDTH = "650px"
 FADEIN_ANIMATION = "animate__animated animate__fadeIn"
-BOUNCEIN_ANIMATION = "animate__animated animate__bounceIn"
+BOUNCEIN_ANIMATION = "animate__animated animate__zoomIn"
 
 # Sizes
 STYLESHEETS = [
     "https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap",
+    "https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap",
     "https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css",
     "/css/styles.css"
 ]
@@ -28,7 +29,8 @@ class Size(Enum):
     SMALL_SPACING = "0"
     MEDIUM_SPACING = "3"
     DEFAULT_SPACING = "6"
-    BIG_SPACING = "9"
+    BIG_SPACING = "7"
+    VERYBIG_SPACING = "9"
 
 
 # Styles

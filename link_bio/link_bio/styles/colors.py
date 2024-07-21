@@ -7,6 +7,7 @@ class Color(Enum):
     CONTENT = "#BD8FDE"
     BORDER = "#E7E1D9"
     NAVBAR = "#6C3483"
+    ALARM = "#BF0F0F"
 
 
 class TextColor(Enum):

@@ -24,10 +24,7 @@ def courses() -> rx.Component:
         navbar(),
         rx.center(
             rx.vstack(
-                header(
-                    False,
-                    live=PageState.live_status
-                ),
+                header(False),
                 courses_links(),
                 max_width=styles.MAX_WIDTH,
                 width="100%",
